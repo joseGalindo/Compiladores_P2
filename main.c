@@ -4,12 +4,18 @@
 int main() {
 
     struct Pila* miPila = pila_nueva();
-    
-    pila_mete(miPila, 5);
-    pila_mete(miPila, 4);
-    pila_mete(miPila, 3);
-    pila_mete(miPila, 2);
-    pila_mete(miPila, 1);
+
+    char* val5 = "5";
+    char* val4 = "4";
+    char* val3 = "3";
+    char* val2 = "2";
+    char* val1 = "1";
+
+    pila_mete(miPila, val5);
+    pila_mete(miPila, val4);
+    pila_mete(miPila, val3);
+    pila_mete(miPila, val2);
+    pila_mete(miPila, val1);
 
     imprime_pila(miPila);
 

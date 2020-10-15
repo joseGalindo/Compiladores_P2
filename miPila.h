@@ -6,9 +6,9 @@ typedef struct Pila Pila;
 /* Crea una nueva Pila */
 Pila* pila_nueva(void);
 
-void pila_mete(Pila* pila, int elemento);
+void pila_mete(Pila* pila, void* elemento);
 
-int pila_saca(Pila* pila);
+void* pila_saca(Pila* pila);
 
 bool pila_es_vacia(Pila* pila);
 

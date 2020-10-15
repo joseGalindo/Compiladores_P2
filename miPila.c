@@ -6,7 +6,7 @@
 typedef struct NodoPila NodoPila;
 
 struct NodoPila {
-    int elemento;
+    void* elemento;
     NodoPila* anterior;
 };
 
@@ -20,7 +20,7 @@ Pila* pila_nueva() {
     return pila;
 }
 
-void pila_mete(Pila* pila, int elemento) {
+void pila_mete(Pila* pila, void* elemento) {
     assert(pila != NULL);
     struct NodoPila* tmp = (struct NodoPila*)malloc( sizeof(struct NodoPila) );
     tmp->elemento = elemento;
@@ -33,7 +33,7 @@ void pila_mete(Pila* pila, int elemento) {
     pila->tamano = pila->tamano + 1;
 }
 
-int pila_saca(Pila* pila) {
+void* pila_saca(Pila* pila) {
     assert(pila != NULL);
     struct NodoPila* tmp = pila->primero;
     if (tmp != NULL) { // No estoy vacia
@@ -42,7 +42,7 @@ int pila_saca(Pila* pila) {
         return tmp->elemento;
     } else {
         // no se que regresar
-        return -1;
+        return NULL;
     }
 }
 
@@ -60,7 +60,7 @@ void imprime_pila(Pila* pila) {
     assert(pila != NULL);
     struct NodoPila* tmp = pila->primero;
     while (tmp != NULL) {
-        printf("E: (%d) -> ", tmp->elemento);
+        printf("E: (%s) -> ", (char*)tmp->elemento);
         tmp = tmp->anterior;
     }
     if (tmp == NULL) {
